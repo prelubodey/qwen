@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # === КРАСНОДАР ===
+  ps_krasnodar:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python ps.py "INBOX.kpp_krasnodar.INBOX" "data/krasnodar.db"
+
+  mon_krasnodar:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python monitor.py "data/krasnodar.db" "data/allowed_krasnodar.txt" "111001" "Краснодар"
+
+  # === МИНВОДЫ ===
+  ps_minvody:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python ps.py "INBOX.kpp_minvody.INBOX" "data/minvody.db"
+
+  mon_minvody:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python monitor.py "data/minvody.db" "data/allowed_minvody.txt" "222002" "Минводы"
+
+  # === РОСТОВ ===
+  ps_rostov:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python ps.py "INBOX.kpp_rostov.INBOX" "data/rostov.db"
+
+  mon_rostov:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python monitor.py "data/rostov.db" "data/allowed_rostov.txt" "333003" "Ростов"
+
+  # === СИМФЕРОПОЛЬ ===
+  ps_simf:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python ps.py "INBOX.kpp_simferopol.INBOX" "data/simf.db"
+
+  mon_simf:
+    build: .
+    restart: always
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    command: python monitor.py "data/simf.db" "data/allowed_simf.txt" "444004" "Симферополь"
