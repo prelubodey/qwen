@@ -8,6 +8,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python ps.py "INBOX.kpp_krasnodar.INBOX" "data/krasnodar.db"
 
   mon_krasnodar:
@@ -16,6 +18,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python monitor.py "data/krasnodar.db" "data/allowed_krasnodar.txt" "111001" "Краснодар"
 
   # === МИНВОДЫ ===
@@ -25,6 +29,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python ps.py "INBOX.kpp_minvody.INBOX" "data/minvody.db"
 
   mon_minvody:
@@ -33,6 +39,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python monitor.py "data/minvody.db" "data/allowed_minvody.txt" "222002" "Минводы"
 
   # === РОСТОВ ===
@@ -42,6 +50,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python ps.py "INBOX.kpp_rostov.INBOX" "data/rostov.db"
 
   mon_rostov:
@@ -50,6 +60,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python monitor.py "data/rostov.db" "data/allowed_rostov.txt" "333003" "Ростов"
 
   # === СИМФЕРОПОЛЬ ===
@@ -59,6 +71,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python ps.py "INBOX.kpp_simferopol.INBOX" "data/simf.db"
 
   mon_simf:
@@ -67,4 +81,6 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: python monitor.py "data/simf.db" "data/allowed_simf.txt" "444004" "Симферополь"
